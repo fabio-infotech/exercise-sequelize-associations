@@ -5,16 +5,16 @@ module.exports = (sequelize, DataTypes) => {
     { timestamps: false },
   );
 
-  Patient_surgeries.associate = (models) => {
+  PatientSurgeries.associate = (models) => {
     models.Surgeries.belongsToMany(models.Patients, {
       as: 'patients',
-      through: Patient_surgeries,
+      through: PatientSurgeries,
       foreignKey: 'surgery_id',
       otherKey: 'patient_id',
     });
     models.Patients.belongsToMany(models.Surgeries, {
       as: 'surgeries',
-      through: Patient_surgeries,
+      through: PatientSurgeries,
       foreignKey: 'patient_id',
       otherKey: 'surgery_id',
     });

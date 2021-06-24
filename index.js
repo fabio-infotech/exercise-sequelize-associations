@@ -5,6 +5,7 @@ require('dotenv').config();
 const {
   getAllPatientsPlans,
   getAllPatientsSurgeries,
+  createPatients,
 } = require('./controllers/patientsController');
 const getAllPlans = require('./controllers/plansController');
 
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/all', getAllPatientsPlans);
 app.get('/surgeries', getAllPatientsSurgeries);
 app.get('/:id', getAllPlans);
+app.post('/', createPatients);
 
 const PORT = process.env.PORT || 3000;
 

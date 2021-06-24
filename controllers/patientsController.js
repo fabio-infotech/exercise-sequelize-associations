@@ -26,7 +26,15 @@ Patients.findAll({ include: { model: Plans, as: 'plan' } })
       return res.status(500).json({ message: 'Algo deu errado' });
     });
 
+const createPatients = (req, res) => {
+  const { fullname, plan_id } = req.body;
+  Patients.create({ fullname, plan_id })
+    .then((response) => res.status(200).json(response))
+    .catch(() => res.status(500).json({ message: 'Algo deu errado' }));
+};
+
 module.exports = {
   getAllPatientsPlans,
   getAllPatientsSurgeries,
+  createPatients,
 };

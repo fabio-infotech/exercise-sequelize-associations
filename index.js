@@ -6,6 +6,7 @@ const {
   getAllPatientsPlans,
   getAllPatientsSurgeries,
   createPatients,
+  getPatientsAndSurgeriesNoDoctor,
 } = require('./controllers/patientsController');
 const getAllPlans = require('./controllers/plansController');
 
@@ -17,6 +18,7 @@ app.get('/all', getAllPatientsPlans);
 app.get('/surgeries', getAllPatientsSurgeries);
 app.get('/:id', getAllPlans);
 app.post('/', createPatients);
+app.get('/surgeries/nodoctor', getPatientsAndSurgeriesNoDoctor);
 
 const PORT = process.env.PORT || 3000;
 
